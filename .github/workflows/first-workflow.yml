@@ -32,6 +32,11 @@ jobs:
         with:
           name: coverage-xml
           path: coverage.xml  # Upload just the XML file
+          
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v5
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
       # Step 6: Print Bye
       - name: Print Bye
