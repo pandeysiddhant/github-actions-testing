@@ -3,3 +3,12 @@ def odd_even(num):
         return "Even"
     else:
         return "odd"
+    
+def addition(x,y):
+    return x+y
+
+def pallindrome(a):
+    if a == a[::-1]:
+        return "Pallindrome"
+    else:
+        return "Not Pallindrome"
