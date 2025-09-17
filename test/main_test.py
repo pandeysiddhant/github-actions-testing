@@ -1,5 +1,5 @@
 # test/test_main.py
-from src.main import odd_even,addition,pallindrome
+from src.main import odd_even,addition,pallindrome,check_prime
 
 def test_odd_even():
     result = odd_even(4)
@@ -20,3 +20,11 @@ def test_not_pallindrome():
 def test_pallindrome():
     result = pallindrome("sys")
     assert result == "Pallindrome"
+
+def test_prime():
+    result = check_prime(3)
+    assert result == "Prime"
+
+def test_not_prime():
+    result = check_prime(21)
+    assert result == "Not Prime"
