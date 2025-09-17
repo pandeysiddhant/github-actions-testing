@@ -17,8 +17,7 @@ def check_prime(num):
     flag = True
     for i in range(2,num-1):
         if num%i == 0:
-            return "Not Prime"
             flag = False
-            break
+            return "Not Prime"
     if flag == True:
         return "Prime"
