@@ -1,5 +1,5 @@
 # test/test_main.py
-from src.main import odd_even,addition,pallindrome,check_prime
+from src.main import odd_even,addition,pallindrome,check_prime,check_string
 
 def test_odd_even():
     result = odd_even(4)
@@ -28,3 +28,7 @@ def test_prime():
 def test_not_prime():
     result = check_prime(21)
     assert result == "Not Prime"
+
+def test_longest_string():
+    result = check_string("zsdghtafghrtplbvqzzzjertysu")
+    assert result == "The longest sub-string is: fghrtplbvqzzzj"

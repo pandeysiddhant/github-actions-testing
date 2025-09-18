@@ -21,3 +21,16 @@ def check_prime(num):
             return "Not Prime"
     if flag == True:
         return "Prime"
+    
+def check_string(a):
+    vowels = ['a','e','i','o','u']
+    string = ""
+    longest = ""
+    for i in a:
+        if i not in vowels:
+            string += i
+        else:
+            if len(string) > len(longest):
+                longest = string
+            string = ""
+    return f"The longest sub-string is: {longest}"
