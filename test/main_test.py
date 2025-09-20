@@ -2,6 +2,7 @@
 from src.main import odd_even,addition,pallindrome,check_prime,check_string
 
 def test_odd_even():
+    print("Testing odd even")
     result = odd_even(4)
     assert result == "Even", "This should be even"
 
