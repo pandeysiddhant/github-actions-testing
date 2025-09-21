@@ -33,3 +33,10 @@ def test_not_prime():
 def test_longest_string():
     result = check_string("zsdghtafghrtplbvqzzzjertysu")
     assert result == "The longest sub-string is: fghrtplbvqzzzj"
+
+
+# 1. pytest -s --> To show the Print statements used in functions in the output"
+# 2. pytest -m "<marker name>"--> To run the specific markers
+# 3. pytest -v --> To show the details of the the tests execution
+# 4. pytest -k "<file/fucntion name>"--> To run the specific modules/functions
+# 5. pytest -v <file path>::<Class name>
