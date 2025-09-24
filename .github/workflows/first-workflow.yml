@@ -65,7 +65,7 @@ jobs:
           name: source-code-package
           path: package/source_code.zip
 
-  upload_to_databricks:
+  Deploy:
     runs-on: ubuntu-latest
     needs: package
     steps:
