@@ -64,3 +64,31 @@ jobs:
         with:
           name: source-code-package
           path: package/source_code.zip
+
+  upload_to_databricks:
+    runs-on: ubuntu-latest
+    needs: package
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Download Package Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: source-code-package
+          path: ./dist
+
+      - name: Install Databricks CLI
+        run: pip install databricks-cli
+
+      - name: Configure Databricks CLI
+        run: |
+          databricks configure --token <<EOF
+          ${{ secrets.DATABRICKS_HOST }}
+          ${{ secrets.DATABRICKS_TOKEN }}
+          EOF
+
+      - name: Upload Package to DBFS
+        run: |
+          echo "Uploading package to DBFS..."
+          databricks fs cp ./dist/source_code.zip /Workspace/Users/pandeysiddhant85@gmail.com/Deployment/source_code.zip --overwrite
