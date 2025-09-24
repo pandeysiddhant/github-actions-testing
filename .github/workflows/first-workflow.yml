@@ -88,7 +88,10 @@ jobs:
           ${{ secrets.DATABRICKS_TOKEN }}
           EOF
 
-      - name: Upload Package to DBFS
+      - name: Deploy to Databricks Workspace
         run: |
-          echo "Uploading package to DBFS..."
-          databricks fs cp ./dist/source_code.zip /Workspace/Users/pandeysiddhant85@gmail.com/Deployment/source_code.zip --overwrite
+          echo "Unzipping package..."
+          unzip ./dist/source_code.zip -d ./dist/unpacked
+
+          echo "Uploading to /Workspace/Shared/src/"
+          databricks workspace import_dir ./dist/unpacked /Workspace/Shared/src --overwrite
